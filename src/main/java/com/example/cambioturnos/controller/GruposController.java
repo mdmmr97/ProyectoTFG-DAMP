@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -22,6 +23,8 @@ import java.util.ResourceBundle;
 
 public class GruposController implements Initializable {
 
+    @FXML
+    private TableView<Grupos> tablagrupos;
     @FXML
     private TableColumn<Grupos, String> listaGrupos;
     @FXML
@@ -35,20 +38,19 @@ public class GruposController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        instanceMain = MainSingleton.getInstance();
         instanceUser = UserSingleton.getInstance();
         usuario = instanceUser.getUsuarioLogin();
-        /*grupos = instanceMain.getListagrupos();
-
-        instanceMain = MainSingleton.getInstance();
+        grupos = instanceMain.getListagrupos();
 
         nombreUser.setText(usuario.getCorreo());
 
         ObservableList<Grupos> gruposfiltrados = grupos.filtered(grupos -> usuario.getGrupos().contains(grupos.getId()));
-        for (Grupos grup:gruposfiltrados){
+        /*for (Grupos grup:gruposfiltrados){
             System.out.println(grup.getNombre());
-        }
-
-        listaGrupos.setCellValueFactory(new PropertyValueFactory<>("nombre"));*/
+        }*/
+        listaGrupos.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        tablagrupos.setItems(gruposfiltrados);
     }
 
     @FXML
