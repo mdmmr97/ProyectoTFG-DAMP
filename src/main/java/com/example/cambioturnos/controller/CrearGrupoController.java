@@ -82,8 +82,6 @@ public class CrearGrupoController implements Initializable {
         coleccionGrupos.insertOne(grupo);
         listagrupos.add(grupo);
         instanceUser.setGrupo(grupo);
-
-        
     }
 
     public void Cerrar(ActionEvent actionEvent) {

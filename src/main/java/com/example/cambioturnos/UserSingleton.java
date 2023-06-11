@@ -3,7 +3,6 @@ package com.example.cambioturnos;
 import com.example.cambioturnos.entidades.Grupos;
 import com.example.cambioturnos.entidades.Usuarios;
 import javafx.scene.layout.BorderPane;
-import org.bson.types.ObjectId;
 
 public class UserSingleton {
     private static UserSingleton instance;
@@ -35,7 +34,6 @@ public class UserSingleton {
     public BorderPane getNodo() {
         return nodo;
     }
-
     public void setNodo(BorderPane nodo) {
         this.nodo = nodo;
     }

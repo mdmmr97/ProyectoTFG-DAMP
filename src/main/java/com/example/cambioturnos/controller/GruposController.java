@@ -57,14 +57,13 @@ public class GruposController implements Initializable {
     private ObservableList<Usuarios> listausuarios;
     private ObservableList<Grupos> listagrupos;
     private Stage myStage;
-    private static BorderPane nodo;
+    private BorderPane nodo;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         instanceMain = MainSingleton.getInstance();
         instanceUser = UserSingleton.getInstance();
 
-        nodo = instanceUser.getNodo();
         usuario = instanceUser.getUsuarioLogin();
         coleccionUser = instanceMain.getColeccionUser();
         coleccionGrupos = instanceMain.getColeccionGrupos();
@@ -115,7 +114,7 @@ public class GruposController implements Initializable {
     void crearGrupo(ActionEvent event) {
         try {
             FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("CrearGrupo.fxml"));
-            GruposController.nodo.setCenter(fxmlloader.load());
+            nodo.setCenter(fxmlloader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -129,10 +128,12 @@ public class GruposController implements Initializable {
     @FXML
     void irPeticion(ActionEvent event) {
         try{
+            instanceUser.setGrupo(grupo);
             //myStage = instanceMain.getStage();
+            nodo = instanceUser.getNodo();
             FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Peticiones.fxml"));
-            GruposController.nodo.setCenter(fxmlloader.load());
-            /*Scene escena2 = new Scene(fxmlloader.load());
+            nodo.setCenter(fxmlloader.load());
+            /*Scene escena2 = new Scene(nodo);
             myStage.setTitle("Registrar Usuario");
             myStage.setScene(escena2);
             myStage.show();*/
