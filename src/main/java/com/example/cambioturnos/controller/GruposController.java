@@ -84,8 +84,6 @@ public class GruposController implements Initializable {
         ObservableList<Grupos> gruposfiltrados = listagrupos.filtered(grupos -> usuario.getGrupos().contains(grupos.getId()));
         listaGrupos.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         tablagrupos.setItems(gruposfiltrados);
-
-
     }
 
     @FXML
@@ -106,11 +104,6 @@ public class GruposController implements Initializable {
     }
 
     @FXML
-    void abandonarGrupo(ActionEvent event) {
-
-    }
-
-    @FXML
     void crearGrupo(ActionEvent event) {
         try {
             nodo = instanceUser.getNodo();
@@ -121,6 +114,21 @@ public class GruposController implements Initializable {
         }
     }
 
+    @FXML
+    void unirseGrupo(ActionEvent event) {
+        try {
+            nodo = instanceUser.getNodo();
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("UnirGrupo.fxml"));
+            nodo.setCenter(fxmlloader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void abandonarGrupo(ActionEvent event) {
+
+    }
     @FXML
     void eliminarGrupo(ActionEvent event) {
 
@@ -137,11 +145,6 @@ public class GruposController implements Initializable {
         } catch (Exception e){
             System.out.println("error Peticion");
         }
-    }
-
-    @FXML
-    void unirseGrupo(ActionEvent event) {
-
     }
 
     public void SeleccionarGrupo(MouseEvent mouseEvent) {
