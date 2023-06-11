@@ -40,7 +40,7 @@ public class Main extends Application {
     public static MongoCollection<Grupos> coleccionGrupos;
     public static ObservableList<Grupos> listagrupos = FXCollections.observableArrayList();;
     public static MongoCollection<Peticiones> coleccionPeticiones;
-    public static ObservableList<Peticiones> listapeticiones = FXCollections.observableArrayList();;
+    public static ObservableList<Peticiones> listapeticiones = FXCollections.observableArrayList();
     public static MainSingleton instance;
 
     @Override

@@ -113,6 +113,7 @@ public class GruposController implements Initializable {
     @FXML
     void crearGrupo(ActionEvent event) {
         try {
+            nodo = instanceUser.getNodo();
             FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("CrearGrupo.fxml"));
             nodo.setCenter(fxmlloader.load());
         } catch (IOException e) {
@@ -129,14 +130,9 @@ public class GruposController implements Initializable {
     void irPeticion(ActionEvent event) {
         try{
             instanceUser.setGrupo(grupo);
-            //myStage = instanceMain.getStage();
             nodo = instanceUser.getNodo();
             FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Peticiones.fxml"));
             nodo.setCenter(fxmlloader.load());
-            /*Scene escena2 = new Scene(nodo);
-            myStage.setTitle("Registrar Usuario");
-            myStage.setScene(escena2);
-            myStage.show();*/
 
         } catch (Exception e){
             System.out.println("error Peticion");
