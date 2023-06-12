@@ -1,5 +1,8 @@
-package com.example.cambioturnos;
+package com.example.cambioturnos.controller;
 
+import com.example.cambioturnos.Main;
+import com.example.cambioturnos.MainSingleton;
+import com.example.cambioturnos.UserSingleton;
 import com.example.cambioturnos.entidades.Grupos;
 import com.example.cambioturnos.entidades.Usuarios;
 import com.mongodb.client.MongoCollection;

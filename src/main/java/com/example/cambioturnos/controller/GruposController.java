@@ -150,6 +150,7 @@ public class GruposController implements Initializable {
             coleccionUser.replaceOne(viejouser,usuario);
         }
     }
+
     @FXML
     void eliminarGrupo(ActionEvent event) {
         ObservableList<Usuarios> usuariosfiltrados = listausuarios.filtered(usuarios -> usuarios.getGrupos().contains(grupo.getId()));

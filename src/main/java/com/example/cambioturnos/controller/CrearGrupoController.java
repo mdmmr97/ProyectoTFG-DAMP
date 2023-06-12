@@ -65,7 +65,7 @@ public class CrearGrupoController implements Initializable {
 
     @FXML
     void AñadirTurno(ActionEvent event) {
-        listaTurnos.add(turno.getText());
+        if (!turno.getText().equals("")) listaTurnos.add(turno.getText());
         turno.setText("");
     }
 

@@ -90,10 +90,12 @@ public class Main extends Application {
 
             instance.setColeccionGrupos(coleccionGrupos);
             instance.setListagrupos(listagrupos);
-            /*
+
             coleccionPeticiones = dataBaseMongo.getCollection(config.getProperty("COLLECTION_TURN"), Peticiones.class);
             coleccionPeticiones.find().into(listapeticiones);
-            instance.setListapeticiones(listapeticiones);*/
+
+            instance.setColeccionPeticiones(coleccionPeticiones);
+            instance.setListapeticiones(listapeticiones);
 
         } catch ( Exception e) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
