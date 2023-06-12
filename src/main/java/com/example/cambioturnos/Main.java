@@ -79,6 +79,9 @@ public class Main extends Application {
             clienteMongo = MongoClients.create(config.getProperty("MONGODB_URI"));
             dataBaseMongo = clienteMongo.getDatabase(config.getProperty("MONGODB_DATABASE")).withCodecRegistry(pojoCodecRegistry);
 
+            instance.setUSUARIO(config.getProperty("USUARIO"));
+            instance.setPASSWORD(config.getProperty("PASSWORD"));
+
             coleccionUser = dataBaseMongo.getCollection(config.getProperty("COLLECTION_USER"), Usuarios.class);
             coleccionUser.find().into(listauser);
 

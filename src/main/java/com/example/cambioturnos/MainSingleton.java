@@ -20,6 +20,9 @@ public class MainSingleton {
     private MongoCollection<Grupos> coleccionGrupos;
     private MongoCollection<Peticiones> coleccionPeticiones;
 
+    private String USUARIO;
+    private String PASSWORD;
+
     private MainSingleton(){
         listauser = FXCollections.observableArrayList();
         listagrupos = FXCollections.observableArrayList();
@@ -80,5 +83,19 @@ public class MainSingleton {
 
     public void setColeccionPeticiones(MongoCollection<Peticiones> coleccionPeticiones) {
         this.coleccionPeticiones = coleccionPeticiones;
+    }
+
+    public String getUSUARIO() {
+        return USUARIO;
+    }
+    public void setUSUARIO(String USUARIO) {
+        this.USUARIO = USUARIO;
+    }
+
+    public String getPASSWORD() {
+        return PASSWORD;
+    }
+    public void setPASSWORD(String PASSWORD) {
+        this.PASSWORD = PASSWORD;
     }
 }

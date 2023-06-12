@@ -1,6 +1,7 @@
 package com.example.cambioturnos;
 
 import com.example.cambioturnos.entidades.Grupos;
+import com.example.cambioturnos.entidades.Peticiones;
 import com.example.cambioturnos.entidades.Usuarios;
 import javafx.scene.layout.BorderPane;
 
@@ -9,7 +10,10 @@ public class UserSingleton {
 
     private Usuarios usuarioLogin;
     private Grupos grupo;
+    private Peticiones peticion;
     private BorderPane nodo;
+    private String tipoCorreo;
+    private String comentario;
 
     private UserSingleton(){}
     public static UserSingleton getInstance(){
@@ -31,10 +35,31 @@ public class UserSingleton {
         this.grupo = grupo;
     }
 
+    public Peticiones getPeticion() {
+        return peticion;
+    }
+    public void setPeticion(Peticiones peticion) {
+        this.peticion = peticion;
+    }
+
     public BorderPane getNodo() {
         return nodo;
     }
     public void setNodo(BorderPane nodo) {
         this.nodo = nodo;
+    }
+
+    public String getTipoCorreo() {
+        return tipoCorreo;
+    }
+    public void setTipoCorreo(String tipoCorreo) {
+        this.tipoCorreo = tipoCorreo;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
 }

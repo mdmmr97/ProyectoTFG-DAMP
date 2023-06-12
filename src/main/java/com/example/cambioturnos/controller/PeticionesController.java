@@ -58,10 +58,8 @@ public class PeticionesController implements Initializable {
     private Usuarios usuario;
     private Grupos grupo;
     private Peticiones peticion;
-    private MongoCollection<Usuarios> coleccionUser;
     private MongoCollection<Peticiones> coleccionPeticiones;
     private MongoCollection<Grupos> coleccionGrupos;
-    private ObservableList<Usuarios> listausuarios;
     private ObservableList<Grupos> listagrupos;
     private ObservableList<Peticiones> listapeticiones;
     private BorderPane nodo;
@@ -74,11 +72,9 @@ public class PeticionesController implements Initializable {
         usuario = instanceUser.getUsuarioLogin();
         grupo = instanceUser.getGrupo();
 
-        coleccionUser = instanceMain.getColeccionUser();
         coleccionGrupos = instanceMain.getColeccionGrupos();
         coleccionPeticiones = instanceMain.getColeccionPeticiones();
 
-        listausuarios = instanceMain.getListauser();
         listagrupos = instanceMain.getListagrupos();
         listapeticiones = instanceMain.getListapeticiones();
 
@@ -110,7 +106,6 @@ public class PeticionesController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @FXML
@@ -133,7 +128,13 @@ public class PeticionesController implements Initializable {
 
     @FXML
     void ModificarPeticion(ActionEvent event) {
-
+        try {
+            nodo = instanceUser.getNodo();
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("ModificarPeticion.fxml"));
+            nodo.setCenter(fxmlloader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -155,12 +156,24 @@ public class PeticionesController implements Initializable {
 
     @FXML
     void InformacionGrupo(ActionEvent event) {
-
+        try {
+            nodo = instanceUser.getNodo();
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("InformacionGrupo.fxml"));
+            nodo.setCenter(fxmlloader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     void VerPeticion(ActionEvent event) {
-
+        try {
+            nodo = instanceUser.getNodo();
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("InfromacionPeticion.fxml"));
+            nodo.setCenter(fxmlloader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
