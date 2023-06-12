@@ -127,11 +127,44 @@ public class GruposController implements Initializable {
 
     @FXML
     void abandonarGrupo(ActionEvent event) {
+        Document viejouser = new Document("correo",usuario.getCorreo());
+        Document viejogrupo = new Document("codigo",grupo.getCodigo());
 
+        if (grupo.getUsuarios().size()>1) {
+            usuario.getGrupos().remove(grupo.getId());
+            grupo.getUsuarios().remove(usuario.getCorreo());
+
+            coleccionUser.replaceOne(viejouser, usuario);
+            coleccionGrupos.replaceOne(viejogrupo, grupo);
+
+            listausuarios.removeIf(usuarios -> usuarios.getCorreo().equals(usuario.getCorreo()));
+            listausuarios.add(usuario);
+            listagrupos.removeIf(grupos -> grupos.getCodigo().equals(grupo.getCodigo()));
+            listagrupos.add(grupo);
+        }
+        else{
+            coleccionGrupos.deleteOne(viejogrupo);
+            listagrupos.remove(grupo);
+
+            usuario.getGrupos().remove(grupo.getId());
+            coleccionUser.replaceOne(viejouser,usuario);
+        }
     }
     @FXML
     void eliminarGrupo(ActionEvent event) {
+        ObservableList<Usuarios> usuariosfiltrados = listausuarios.filtered(usuarios -> usuarios.getGrupos().contains(grupo.getId()));
 
+        Document grupdel = new Document("codigo",grupo.getCodigo());
+        coleccionGrupos.deleteOne(grupdel);
+        listagrupos.remove(grupo);
+
+        for (Usuarios usuarios:listausuarios){
+            if (usuariosfiltrados.contains(usuarios)){
+                Document viejouser = new Document("correo",usuarios.getCorreo());
+                usuarios.getGrupos().remove(grupo.getId());
+                coleccionUser.replaceOne(viejouser,usuarios);
+            }
+        }
     }
 
     @FXML

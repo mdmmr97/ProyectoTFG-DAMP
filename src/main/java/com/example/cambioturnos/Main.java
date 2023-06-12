@@ -79,19 +79,19 @@ public class Main extends Application {
             clienteMongo = MongoClients.create(config.getProperty("MONGODB_URI"));
             dataBaseMongo = clienteMongo.getDatabase(config.getProperty("MONGODB_DATABASE")).withCodecRegistry(pojoCodecRegistry);
 
-            coleccionUser = dataBaseMongo.getCollection("Usuarios", Usuarios.class);
+            coleccionUser = dataBaseMongo.getCollection(config.getProperty("COLLECTION_USER"), Usuarios.class);
             coleccionUser.find().into(listauser);
 
             instance.setColeccionUser(coleccionUser);
             instance.setListauser(listauser);
 
-            coleccionGrupos = dataBaseMongo.getCollection("GrupoTurnos", Grupos.class);
+            coleccionGrupos = dataBaseMongo.getCollection(config.getProperty("COLLECTION_GRUP"), Grupos.class);
             coleccionGrupos.find().into(listagrupos);
 
             instance.setColeccionGrupos(coleccionGrupos);
             instance.setListagrupos(listagrupos);
             /*
-            coleccionPeticiones = dataBaseMongo.getCollection("TurnosCambiar", Peticiones.class);
+            coleccionPeticiones = dataBaseMongo.getCollection(config.getProperty("COLLECTION_TURN"), Peticiones.class);
             coleccionPeticiones.find().into(listapeticiones);
             instance.setListapeticiones(listapeticiones);*/
 
