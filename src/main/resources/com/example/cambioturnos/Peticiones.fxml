@@ -83,7 +83,7 @@
                   </Button>
                   <VBox fx:id="menu" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ModificarPeticion">
+                        <Button fx:id="modificar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ModificarPeticion">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -91,7 +91,7 @@
                               <Icons525View glyphName="PENCIL" />
                            </graphic>
                         </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#BorrarPeticion" text="-">
+                        <Button fx:id="eliminar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#BorrarPeticion" text="-">
                            <font>
                               <Font size="16.0" />
                            </font>

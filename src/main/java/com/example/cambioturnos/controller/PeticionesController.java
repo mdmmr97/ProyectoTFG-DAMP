@@ -48,6 +48,10 @@ public class PeticionesController implements Initializable {
     @FXML
     private VBox menu;
     @FXML
+    private Button eliminar;
+    @FXML
+    private Button modificar;
+    @FXML
     private Button todaspeticiones;
     @FXML
     private Button verpeticion;
@@ -87,6 +91,8 @@ public class PeticionesController implements Initializable {
         menu.setManaged(false);
         todaspeticiones.setVisible(false);
         todaspeticiones.setManaged(false);
+        modificar.setDisable(true);
+        eliminar.setDisable(true);
 
         colFecha.setCellValueFactory(param -> {
             String fecha = param.getValue().getFechaturno();
@@ -120,6 +126,9 @@ public class PeticionesController implements Initializable {
         todaspeticiones.setManaged(false);
         menu.setVisible(false);
         menu.setManaged(false);
+
+        verpeticion.setDisable(true);
+        verpeticion.setVisible(false);
     }
 
     @FXML
@@ -131,11 +140,17 @@ public class PeticionesController implements Initializable {
         menu.setManaged(!menu.isManaged());
         todaspeticiones.setVisible(!todaspeticiones.isVisible());
         todaspeticiones.setManaged(!todaspeticiones.isManaged());
+
+        verpeticion.setDisable(true);
+        verpeticion.setVisible(false);
+        modificar.setDisable(true);
+        eliminar.setDisable(true);
     }
 
     @FXML
     void ModificarPeticion(ActionEvent event) {
         try {
+            instanceUser.setPeticion(peticion);
             nodo = instanceUser.getNodo();
             FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("ModificarPeticion.fxml"));
             nodo.setCenter(fxmlloader.load());
@@ -162,6 +177,8 @@ public class PeticionesController implements Initializable {
         peticion = tablaPeticiones.getSelectionModel().getSelectedItem();
         verpeticion.setDisable(false);
         verpeticion.setVisible(true);
+        modificar.setDisable(false);
+        eliminar.setDisable(false);
 
     }
 
