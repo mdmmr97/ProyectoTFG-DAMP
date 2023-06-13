@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="479.0" prefWidth="874.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cambioturnos.controller.CrearPeticionController">
    <children>
       <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="479.0" prefWidth="874.0">
@@ -40,7 +39,7 @@
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#AñadirPeticion" text="Añadir" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <Button fx:id="botonCrear" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#AñadirPeticion" text="Añadir" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <font>
                   <Font size="16.0" />
                </font>

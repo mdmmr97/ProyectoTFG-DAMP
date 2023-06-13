@@ -14,10 +14,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
+import org.bson.Document;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,6 +29,8 @@ import java.util.ResourceBundle;
 
 public class CrearPeticionController implements Initializable {
 
+    @FXML
+    private Button botonCrear;
     @FXML
     private TextArea descripcion;
 
@@ -55,6 +59,7 @@ public class CrearPeticionController implements Initializable {
 
         usuario = instanceUser.getUsuarioLogin();
         grupo = instanceUser.getGrupo();
+        peticion = new Peticiones();
 
         coleccionGrupos = instanceMain.getColeccionGrupos();
         coleccionPeticiones = instanceMain.getColeccionPeticiones();
@@ -70,30 +75,56 @@ public class CrearPeticionController implements Initializable {
         peticion.setUsuario(usuario.getCorreo());
         peticion.setGrupo(grupo.getId());
         peticion.setEstado("ABIERTA");
+
     }
 
     @FXML
     void AñadirPeticion(ActionEvent event) {
+        boolean fechainvalida = false;
+        boolean turnonull = false;
 
-        if(fechaturno.getValue() != null && !fechaturno.getValue().equals(LocalDate.now())){
+        if(fechaturno.getValue() != null && !fechaturno.getValue().equals(LocalDate.now()) && !fechaturno.getValue().isBefore(LocalDate.now())){
             peticion.setFechaturno(fechaturno.getValue().format(formatter));
+            fechaturno.setStyle("");
+            fechainvalida = false;
         }
-        else fechaturno.setStyle("-fx-border-color: red");
+        else {
+            fechainvalida = true;
+            fechaturno.setStyle("-fx-border-color: red");
+        }
 
-        if (!selectorTurno.getValue().equals("")) peticion.setTurno(selectorTurno.getValue());
-        else selectorTurno.setStyle("-fx-border-color: red");
+        if (selectorTurno.getValue() != null) {
+            peticion.setTurno(selectorTurno.getValue());
+            selectorTurno.setStyle("");
+            turnonull = false;
+        }
+        else {
+            turnonull = true;
+            selectorTurno.setStyle("-fx-border-color: red");
+        }
 
         peticion.setDescripcion(descripcion.getText());
 
-        if (fechaturno.getValue() != null && !fechaturno.getValue().equals(LocalDate.now()) && !selectorTurno.getValue().equals("")){
-            instanceUser.setPeticion(peticion);
+        if (!fechainvalida  && !turnonull){
             coleccionPeticiones.insertOne(peticion);
+            listapeticiones.add(peticion);
+            instanceUser.setPeticion(peticion);
+
+            Document viejogrupo = new Document("_id",grupo.getId());
+            grupo.getPeticiones().add(peticion.getId());
+            coleccionGrupos.replaceOne(viejogrupo,grupo);
 
             instanceUser.setTipoCorreo("NuevaPeticion");
             MandarCorreo correo = new MandarCorreo();
-            correo.HacerCorreo();
+            //correo.HacerCorreo();
         }
-
+        try {
+            nodo = instanceUser.getNodo();
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("InfromacionPeticion.fxml"));
+            nodo.setCenter(fxmlloader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

@@ -20,6 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import org.bson.Document;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,6 +43,7 @@ public class CrearGrupoController implements Initializable {
     private UserSingleton instanceUser;
     private MongoCollection<Grupos> coleccionGrupos;
     private ObservableList<Grupos> listagrupos;
+    private MongoCollection<Usuarios> coleccionUser;
     private Usuarios usuario;
     private Grupos grupo;
     private int idTurno;
@@ -56,6 +58,7 @@ public class CrearGrupoController implements Initializable {
         instanceMain = MainSingleton.getInstance();
         coleccionGrupos = instanceMain.getColeccionGrupos();
         listagrupos = instanceMain.getListagrupos();
+        coleccionUser = instanceMain.getColeccionUser();
 
         instanceUser = UserSingleton.getInstance();
         usuario = instanceUser.getUsuarioLogin();
@@ -98,6 +101,10 @@ public class CrearGrupoController implements Initializable {
                 coleccionGrupos.insertOne(grupo);
                 listagrupos.add(grupo);
                 instanceUser.setGrupo(grupo);
+
+                Document viejouser = new Document("correo",usuario.getCorreo());
+                usuario.getGrupos().add(grupo.getId());
+                coleccionUser.replaceOne(viejouser,usuario);
 
                 nodo = instanceUser.getNodo();
                 FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Peticiones.fxml"));

@@ -94,7 +94,8 @@ public class PeticionesController implements Initializable {
         colTurno.setCellValueFactory(new PropertyValueFactory<>("turno"));
 
         EliminarPeticiones();
-        tablaPeticiones.setItems(listapeticiones.filtered(peticiones -> !peticiones.getUsuario().equals(usuario.getCorreo())));
+        tablaPeticiones.setItems(listapeticiones.filtered(peticiones -> !peticiones.getUsuario().equals(usuario.getCorreo())
+                                 && peticiones.getGrupo().equals(grupo.getId())));
     }
 
     @FXML
@@ -119,7 +120,9 @@ public class PeticionesController implements Initializable {
 
     @FXML
     void VerMisPeticiones(ActionEvent event) {
-        tablaPeticiones.setItems(listapeticiones.filtered(peticiones -> peticiones.getUsuario().equals(usuario.getCorreo())));
+        tablaPeticiones.setItems(listapeticiones.filtered(peticiones -> peticiones.getUsuario().equals(usuario.getCorreo())
+                                 && peticiones.getGrupo().equals(grupo.getId())));
+
         menu.setVisible(!menu.isVisible());
         menu.setManaged(!menu.isManaged());
         todaspeticiones.setVisible(!todaspeticiones.isVisible());
@@ -140,10 +143,11 @@ public class PeticionesController implements Initializable {
     @FXML
     void BorrarPeticion(ActionEvent event) {
 
-        Document viejogrupo = new Document("id",grupo.getId());
-        Document peticionDel = new Document("id", peticion.getId());
+        Document viejogrupo = new Document("_id",grupo.getId());
+        Document peticionDel = new Document("_id", peticion.getId());
 
         coleccionPeticiones.deleteOne(peticionDel);
+        listapeticiones.remove(peticion);
 
         grupo.getPeticiones().remove(peticion.getId());
         coleccionGrupos.replaceOne(viejogrupo,grupo);
@@ -193,9 +197,9 @@ public class PeticionesController implements Initializable {
     }
 
     private void EliminarPeticiones(){
-        ObservableList<Peticiones> listpeticionesdel = listapeticiones.filtered(peticiones -> peticiones.getGrupo()
-                .equals(grupo.getId()) && (peticiones.getFechaturno().equals(LocalDate.now()
-                .format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))) || peticiones.getEstado().equals("CERRADA")));
+        ObservableList<Peticiones> listpeticionesdel = listapeticiones.filtered(peticiones -> peticiones.getGrupo().equals(grupo.getId())
+                && (peticiones.getFechaturno().equals(LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")))
+                || peticiones.getEstado().equals("CERRADA")));
 
         Document viejogrupo = new Document("codigo",grupo.getCodigo());
 

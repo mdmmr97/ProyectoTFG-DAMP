@@ -79,8 +79,6 @@ public class GruposController implements Initializable {
         peticiones.setDisable(true);
         peticiones.setVisible(false);
 
-        ActualizarGrupos();
-
         ObservableList<Grupos> gruposfiltrados = listagrupos.filtered(grupos -> usuario.getGrupos().contains(grupos.getId()));
         listaGrupos.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         tablagrupos.setItems(gruposfiltrados);
@@ -198,18 +196,5 @@ public class GruposController implements Initializable {
         }
     }
 
-    private void ActualizarGrupos(){
-        ObservableList<Grupos> listgrupuser = listagrupos.filtered(grupos -> grupos.getUsuarios().contains(usuario.getCorreo()));
-        Document viejouser = new Document("correo",usuario.getCorreo());
-        if (usuario.getGrupos() != null) usuario.getGrupos().clear();
-        else {
-            List<ObjectId> listagrupId = new ArrayList<>();
-            usuario.setGrupos(listagrupId);
-        }
-        for (Grupos grupo:listgrupuser){
-            usuario.getGrupos().add(grupo.getId());
-        }
-        coleccionUser.replaceOne(viejouser,usuario);
-    }
 }
 
