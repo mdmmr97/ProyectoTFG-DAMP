@@ -105,7 +105,7 @@ public class GruposController implements Initializable {
     void crearGrupo(ActionEvent event) {
         try {
             nodo = instanceUser.getNodo();
-            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("CrearGrupo.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Grupo/CrearGrupo.fxml"));
             nodo.setCenter(fxmlloader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -116,7 +116,7 @@ public class GruposController implements Initializable {
     void unirseGrupo(ActionEvent event) {
         try {
             nodo = instanceUser.getNodo();
-            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("UnirGrupo.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Grupo/UnirGrupo.fxml"));
             nodo.setCenter(fxmlloader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -171,7 +171,7 @@ public class GruposController implements Initializable {
         try{
             instanceUser.setGrupo(grupo);
             nodo = instanceUser.getNodo();
-            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Peticiones.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Peticiones/Peticiones.fxml"));
             nodo.setCenter(fxmlloader.load());
 
         } catch (Exception e){
@@ -180,6 +180,7 @@ public class GruposController implements Initializable {
     }
 
     public void SeleccionarGrupo(MouseEvent mouseEvent) {
+
         peticiones.setDisable(false);
         peticiones.setVisible(true);
         dejarGrup.setDisable(false);
@@ -195,6 +196,5 @@ public class GruposController implements Initializable {
             eliminarGrup.setVisible(false);
         }
     }
-
 }
 

@@ -1,78 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.icons525.Icons525View?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cambioturnos.controller.Grupos.CrearGrupoController">
+<BorderPane maxHeight="479.0" maxWidth="874.0" prefHeight="479.0" prefWidth="874.0" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cambioturnos.controller.Grupos.CrearGrupoController">
    <center>
-      <GridPane alignment="CENTER" prefHeight="362.0" prefWidth="700.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="50.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="595.0" minWidth="10.0" prefWidth="107.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="318.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="159.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="159.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="50.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="144.0" minHeight="0.0" prefHeight="42.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="140.0" minHeight="0.0" prefHeight="69.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="218.0" minHeight="10.0" prefHeight="138.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="188.0" minHeight="9.0" prefHeight="50.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
+      <AnchorPane maxHeight="430.0" maxWidth="1.7976931348623157E308" prefHeight="430.0" prefWidth="874.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Nombre" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Turnos" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="nombre" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="1">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </TextField>
-            <ListView fx:id="tablaTurnos" onMouseClicked="#SeleccionarTurno" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="3" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#AñadirTurno" GridPane.columnIndex="3" GridPane.rowIndex="2">
-               <graphic>
-                  <Icons525View fill="LIME" glyphName="CIRCLESELECT" size="20" />
-               </graphic>
-            </Button>
-            <TextField fx:id="turno" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </TextField>
-            <Button fx:id="borrarTurno" disable="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#EliminarTurno" GridPane.columnIndex="4" GridPane.rowIndex="2">
-               <graphic>
-                  <Icons525View fill="RED" glyphName="CIRCLEDELETE" size="20" />
-               </graphic>
-            </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#CrearGrupo" text="Crear" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Cerrar" text="Salir" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <GridPane alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="479.0" prefWidth="874.0" stylesheets="@../CSS/Style.css">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="595.0" minWidth="10.0" prefWidth="107.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="318.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="159.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="159.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="50.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="144.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="140.0" minHeight="0.0" prefHeight="111.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="218.0" minHeight="10.0" prefHeight="154.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="188.0" minHeight="9.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Nombre" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label id="#LabelTurnos" alignment="TOP_RIGHT" contentDisplay="BOTTOM" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="95.0" text="Turnos" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="nombre" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextField>
+                  <ListView fx:id="tablaTurnos" maxWidth="1.7976931348623157E308" onMouseClicked="#SeleccionarTurno" prefHeight="200.0" prefWidth="628.0" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </ListView>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#AñadirTurno" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <graphic>
+                        <Icons525View fill="LIME" glyphName="CIRCLESELECT" size="20" />
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <TextField fx:id="turno" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Button fx:id="borrarTurno" disable="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#EliminarTurno" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                     <graphic>
+                        <Icons525View fill="RED" glyphName="CIRCLEDELETE" size="20" />
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#CrearGrupo" text="Crear" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Cerrar" prefHeight="39.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                     <graphic>
+                        <Icons525View glyphName="ARROW" size="20" />
+                     </graphic>
+                  </Button>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </GridPane>
          </children>
-      </GridPane>
+      </AnchorPane>
    </center>
    <top>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Grupo" wrappingWidth="178.4765625" BorderPane.alignment="BOTTOM_CENTER">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" opacity="0.6" prefHeight="49.0" prefWidth="874.0" styleClass="hbox" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="encabezado-secundario" text="NUEVO GRUPO">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
    </top>
 </BorderPane>

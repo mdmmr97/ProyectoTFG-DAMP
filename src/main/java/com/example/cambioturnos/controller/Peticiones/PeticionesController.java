@@ -209,7 +209,7 @@ public class PeticionesController implements Initializable {
     void VolverGrupos(ActionEvent event) {
         try {
             Stage myStage = instanceMain.getStage();
-            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Grupos.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Grupo/Grupos.fxml"));
             nodo = fxmlloader.load();
             instanceUser.setNodo(nodo);
             Scene escena2 = new Scene(nodo);

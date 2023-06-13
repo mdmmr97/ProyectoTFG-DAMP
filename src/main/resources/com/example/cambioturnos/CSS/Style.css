@@ -1,0 +1,105 @@
+AnchorPane, BorderPane{
+    -fx-background-image: url(fondo.jpg)
+}
+
+TextField, PasswordField, TextArea, DatePicker, Text{
+    -fx-font-weight: bold;
+    -fx-background-color: #dfdfdf;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-font-size: 16px;
+}
+.hbox{
+    -fx-background-color: #dfdfdf;
+    -fx-text-fill: black;
+}
+ImageView{
+    -fx-image: url('grupo.png');
+    -fx-image-border: 50px;
+    -fx-image-border-color: #dfdfdf;
+}
+
+.label{
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+    -fx-alignment: center-right;
+    -fx-font-weight: bold;
+}
+#LabelTurnos{
+    -fx-alignment: top-right;
+}
+Button{
+    -fx-font-size:16px;
+    -fx-font-weight: bold;
+    -fx-background-color: #dfdfdf;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
+.encabezado-secundario{
+    -fx-font-size: 18px;
+        -fx-text-fill: white;
+        -fx-alignment: center-left;
+        -fx-font-weight: bold;
+}
+.encabezado-principal{
+    -fx-font-size:24px;
+    -fx-alignment: center;
+}
+
+.error-user{
+    -fx-border-color: red;
+    -fx-border-width: 2px;
+}
+
+/*CSS ListView*/
+.list-cell{
+    -fx-text-alignment: center;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-alignment: center;
+
+}
+.list-cell:odd{
+    -fx-background-color: #dfdfdf;
+}
+.list-cell:even{
+    -fx-background-color: #dfdfdf;
+}
+.list-cell:filled:selected{
+    -fx-background-color: #585858;
+    -fx-text-fill: white;
+}
+/*CSS Tabla*/
+.table-view .column-header .label{
+    -fx-text-fill: White;
+    -fx-alignment: CENTER;
+    -fx-font-weight: bold;
+}
+.table-view .column-header {
+    -fx-background-color: #585858;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.table-view:row-selection .table-row-cell:filled:selected {
+    -fx-background-color: #585858;
+    -fx-border-color: #dfdfdf;
+    -fx-font-weight: bold;
+}
+.table-cell {
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+.table-row-cell:odd {
+    -fx-background-color: #d1d1d1;
+    -fx-border-color: #585858;
+}
+.table-row-cell:even {
+    -fx-background-color: #d1d1d1;
+    -fx-border-color: #585858;
+}
+.table-row-cell:empty .table-cell {
+    -fx-border-width: 0px;
+    -fx-background-color: #dfdfdf;
+}
