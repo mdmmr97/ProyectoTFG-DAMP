@@ -1,4 +1,4 @@
-package com.example.cambioturnos.controller;
+package com.example.cambioturnos.controller.Grupos;
 
 import com.example.cambioturnos.Main;
 import com.example.cambioturnos.MainSingleton;

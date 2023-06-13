@@ -1,4 +1,4 @@
-package com.example.cambioturnos.controller;
+package com.example.cambioturnos.controller.Login;
 
 import com.example.cambioturnos.Main;
 import com.example.cambioturnos.MainSingleton;
@@ -15,6 +15,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.net.URL;
 import java.security.MessageDigest;
@@ -51,7 +52,7 @@ public class MainController implements Initializable {
     void Registrarse(ActionEvent event) {
         try{
             Stage myStage = instanceMain.getStage();
-            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Registro.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Login/Registro.fxml"));
             Scene escena2 = new Scene(fxmlloader.load());
             myStage.setTitle("Registrar Usuario");
             myStage.setScene(escena2);
@@ -66,25 +67,20 @@ public class MainController implements Initializable {
     void comprobarLogin(ActionEvent event) {
         try{
             String email = correo.getText();
-            Usuarios usuario = buscarUsuario(email);
+            Usuarios usuario = listauser.stream()
+                                .filter(usuarios -> usuarios.getCorreo().equals(email))
+                                .findFirst().orElse(null);
+
             if (usuario == null){
                 correo.getStyleClass().add("error-user");
             }
             else{
-                /*hashearContraseña(password.getText());*/
-               /* if(concif.length == usuario.getPassword().length){
-                    for (int i = 0; i < concif.length; i++){
-                        if (concif[i] != usuario.getPassword()[i]){
-                            okcon = false;
-                        }
-                    }
-                }
-                else okcon = false;*/
-                if (password.getText().equals(usuario.getPassword())) {
+
+                if (BCrypt.checkpw(password.getText(), usuario.getPassword())) {
 
                     instanceUser.setUsuarioLogin(usuario);
                     Stage myStage = instanceMain.getStage();
-                    FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Grupos.fxml"));
+                    FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Grupo/Grupos.fxml"));
                     nodo = fxmlloader.load();
                     instanceUser.setNodo(nodo);
                     Scene escena2 = new Scene(nodo);
@@ -97,21 +93,6 @@ public class MainController implements Initializable {
                     password.getStyleClass().add("error-user");
                 }
             }
-        } catch (Exception e){
-
-        }
-    }
-
-    private Usuarios buscarUsuario(String email){
-        return listauser.stream()
-                .filter(usuarios -> usuarios.getCorreo().equals(email))
-                .findFirst().orElse(null);
-    }
-    private void hashearContraseña(String password){
-        try {
-            md = MessageDigest.getInstance("SHA1");
-            md.update(password.getBytes());
-            concif = md.digest();
         } catch (Exception e){
 
         }

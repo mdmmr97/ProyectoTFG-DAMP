@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="479.0" prefWidth="874.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cambioturnos.controller.InformacionGrupoController">
+<AnchorPane prefHeight="479.0" prefWidth="874.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cambioturnos.controller.Grupos.InformacionGrupoController">
    <children>
       <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#SeleccionarUsuario" prefHeight="479.0" prefWidth="874.0">
         <columnConstraints>

@@ -1,4 +1,4 @@
-package com.example.cambioturnos.controller;
+package com.example.cambioturnos.controller.Grupos;
 
 import com.example.cambioturnos.Main;
 import com.example.cambioturnos.MainSingleton;
@@ -91,7 +91,7 @@ public class GruposController implements Initializable {
             instanceUser.setGrupo(null);
 
             myStage = instanceMain.getStage();
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Login.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Login/Login.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             myStage.setTitle("Login");
             myStage.setScene(scene);

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="479.0" prefWidth="874.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cambioturnos.controller.PeticionesController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="479.0" prefWidth="874.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cambioturnos.controller.Peticiones.PeticionesController">
    <center>
       <AnchorPane prefHeight="479.0" prefWidth="709.0">
          <children>

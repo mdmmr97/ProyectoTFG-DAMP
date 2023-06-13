@@ -1,9 +1,11 @@
-package com.example.cambioturnos.controller;
+package com.example.cambioturnos.controller.Login;
 
 import com.example.cambioturnos.Main;
 import com.example.cambioturnos.MainSingleton;
 import com.example.cambioturnos.UserSingleton;
 import com.example.cambioturnos.entidades.Usuarios;
+import org.bson.types.ObjectId;
+import org.mindrot.jbcrypt.BCrypt;
 import com.mongodb.client.MongoCollection;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,6 +20,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class RegistroController implements Initializable {
@@ -51,7 +55,10 @@ public class RegistroController implements Initializable {
         Usuarios newuser = new Usuarios();
         newuser.setCorreo(correo.getText());
         if (password.getText().equals(repassword.getText())) {
-            newuser.setPassword(password.getText());
+            String hashcontraseña = BCrypt.hashpw(password.getText(), BCrypt.gensalt());
+            newuser.setPassword(hashcontraseña);
+            List<ObjectId> listagrupId = new ArrayList<>();
+            newuser.setGrupos(listagrupId);
 
             coleccionUser.insertOne(newuser);
             listauser.add(newuser);
@@ -69,7 +76,7 @@ public class RegistroController implements Initializable {
     private void CambiarEscena(){
         try{
             Stage myStage = instanceMain.getStage();
-            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Grupos.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Grupo/Grupos.fxml"));
             nodo = fxmlloader.load();
             instanceUser.setNodo(nodo);
             Scene escena2 = new Scene(nodo);
@@ -77,7 +84,7 @@ public class RegistroController implements Initializable {
             myStage.setScene(escena2);
             myStage.show();
         } catch (Exception e){
-            System.out.println("Error grupos");
+            System.out.println("Error al mostrar la escena de Grupos");
         }
     }
 }
