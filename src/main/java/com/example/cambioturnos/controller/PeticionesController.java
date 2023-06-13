@@ -50,6 +50,8 @@ public class PeticionesController implements Initializable {
     @FXML
     private Button todaspeticiones;
     @FXML
+    private Button verpeticion;
+    @FXML
     private Label nombregrupo;
 
 
@@ -79,6 +81,8 @@ public class PeticionesController implements Initializable {
         listapeticiones = instanceMain.getListapeticiones();
 
         nombregrupo.setText(grupo.getNombre());
+        verpeticion.setDisable(true);
+        verpeticion.setVisible(false);
         menu.setVisible(false);
         menu.setManaged(false);
         todaspeticiones.setVisible(false);
@@ -156,6 +160,9 @@ public class PeticionesController implements Initializable {
     @FXML
     void ElegirPeticion(MouseEvent event) {
         peticion = tablaPeticiones.getSelectionModel().getSelectedItem();
+        verpeticion.setDisable(false);
+        verpeticion.setVisible(true);
+
     }
 
     @FXML
@@ -173,7 +180,8 @@ public class PeticionesController implements Initializable {
     void VerPeticion(ActionEvent event) {
         try {
             nodo = instanceUser.getNodo();
-            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("InfromacionPeticion.fxml"));
+            instanceUser.setPeticion(peticion);
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("InformacionPeticion.fxml"));
             nodo.setCenter(fxmlloader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);

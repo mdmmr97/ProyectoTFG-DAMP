@@ -31,7 +31,7 @@
                   <TableColumn fx:id="colTurno" editable="false" maxWidth="1.7976931348623157E308" prefWidth="219.0" resizable="false" text="TURNO" />
               </columns>
             </TableView>
-            <Button layoutX="315.0" layoutY="418.0" mnemonicParsing="false" onAction="#VerPeticion" prefHeight="41.0" prefWidth="106.0">
+            <Button fx:id="verpeticion" layoutX="315.0" layoutY="418.0" mnemonicParsing="false" onAction="#VerPeticion" prefHeight="41.0" prefWidth="106.0">
                <font>
                   <Font size="20.0" />
                </font>

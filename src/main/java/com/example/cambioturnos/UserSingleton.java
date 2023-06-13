@@ -13,7 +13,6 @@ public class UserSingleton {
     private Peticiones peticion;
     private BorderPane nodo;
     private String tipoCorreo;
-    private String comentario;
 
     private UserSingleton(){}
     public static UserSingleton getInstance(){
@@ -54,12 +53,5 @@ public class UserSingleton {
     }
     public void setTipoCorreo(String tipoCorreo) {
         this.tipoCorreo = tipoCorreo;
-    }
-
-    public String getComentario() {
-        return comentario;
-    }
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
     }
 }

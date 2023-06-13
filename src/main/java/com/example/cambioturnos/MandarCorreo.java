@@ -22,7 +22,6 @@ public class MandarCorreo {
     private Grupos grupo;
     private Peticiones peticion;
     private String tipoCorreo;
-    private String comentario;
 
     private static void Propiedades() {
         props = new Properties();
@@ -45,7 +44,6 @@ public class MandarCorreo {
         grupo = instanceUser.getGrupo();
         peticion = instanceUser.getPeticion();
         tipoCorreo = instanceUser.getTipoCorreo();
-        comentario = instanceUser.getComentario();
 
         Propiedades();
         Session session = Session.getDefaultInstance(props,
@@ -83,12 +81,10 @@ public class MandarCorreo {
     private String ContenidoNuevaPeticion(){
         return "En el grupo " + grupo.getNombre() + " el usuario " + usuarioLogin.getCorreo() + " ha realizado una nueva " +
                 "peticion de cambio de turno.\n La peticion se ha realizado para el turno de " + peticion.getTurno() +
-                " para el dia " + peticion.getFechaturno();
+                " en el dia " + peticion.getFechaturno();
     }
     private String ContenidoRespuestaPeticion(){
-        String contenido = "El usuario " + usuarioLogin.getCorreo() + " está interesado en su propuesta de cambio de turno " +
+        return "El usuario " + usuarioLogin.getCorreo() + " está interesado en su propuesta de cambio de turno " +
                 "para el dia " + peticion.getFechaturno() + "en el turno de " + peticion.getTurno();
-        if (!comentario.equals(""))  contenido = contenido +"\n El usuario interesado comenta:\n "+ comentario;
-        return contenido;
     }
 }
