@@ -49,4 +49,5 @@ public class Usuarios {
     public void setGrupos(List<ObjectId> grupos) {
         this.grupos = grupos;
     }
+
 }
