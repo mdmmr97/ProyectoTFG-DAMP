@@ -13,14 +13,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
-import javafx.util.Callback;
 import org.bson.Document;
 
 import java.io.IOException;
@@ -111,7 +107,7 @@ public class InformacionGrupoController implements Initializable {
     void VolverPeticiones(ActionEvent event) {
         try {
             nodo = instanceUser.getNodo();
-            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Peticiones.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Peticiones/Peticiones.fxml"));
             nodo.setCenter(fxmlloader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);

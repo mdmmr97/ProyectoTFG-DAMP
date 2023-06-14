@@ -116,11 +116,11 @@ public class CrearPeticionController implements Initializable {
 
             instanceUser.setTipoCorreo("NuevaPeticion");
             MandarCorreo correo = new MandarCorreo();
-            //correo.HacerCorreo();
+            correo.HacerCorreo();
         }
         try {
             nodo = instanceUser.getNodo();
-            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("InformacionPeticion.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Peticiones/InformacionPeticion.fxml"));
             nodo.setCenter(fxmlloader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -131,7 +131,7 @@ public class CrearPeticionController implements Initializable {
     void VolverPeticiones(ActionEvent event) {
         try {
             nodo = instanceUser.getNodo();
-            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Peticiones.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Peticiones/Peticiones.fxml"));
             nodo.setCenter(fxmlloader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);

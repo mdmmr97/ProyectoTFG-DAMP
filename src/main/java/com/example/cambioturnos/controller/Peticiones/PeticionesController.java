@@ -112,7 +112,7 @@ public class PeticionesController implements Initializable {
     void AñadirPeticion(ActionEvent event) {
         try {
             nodo = instanceUser.getNodo();
-            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("CrearPeticion.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Peticiones/CrearPeticion.fxml"));
             nodo.setCenter(fxmlloader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -152,7 +152,7 @@ public class PeticionesController implements Initializable {
         try {
             instanceUser.setPeticion(peticion);
             nodo = instanceUser.getNodo();
-            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("ModificarPeticion.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Peticiones/ModificarPeticion.fxml"));
             nodo.setCenter(fxmlloader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -186,7 +186,7 @@ public class PeticionesController implements Initializable {
     void InformacionGrupo(ActionEvent event) {
         try {
             nodo = instanceUser.getNodo();
-            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("InformacionGrupo.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Grupo/InformacionGrupo.fxml"));
             nodo.setCenter(fxmlloader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -198,7 +198,7 @@ public class PeticionesController implements Initializable {
         try {
             nodo = instanceUser.getNodo();
             instanceUser.setPeticion(peticion);
-            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("InformacionPeticion.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(Main.class.getResource("Peticiones/InformacionPeticion.fxml"));
             nodo.setCenter(fxmlloader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);

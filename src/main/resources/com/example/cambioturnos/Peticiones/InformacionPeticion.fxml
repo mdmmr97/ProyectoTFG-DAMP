@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.icons525.Icons525View?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="479.0" prefWidth="874.0" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cambioturnos.controller.Peticiones.InformacionPeticionController">
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="479.0" prefWidth="874.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="178.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="242.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="270.0" minHeight="10.0" prefHeight="146.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="188.0" minHeight="10.0" prefHeight="142.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#VolverPeticiones" prefHeight="41.0" prefWidth="193.0" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                     <graphic>
+                        <Icons525View glyphName="ARROW" />
+                     </graphic>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="30.0" right="20.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="respuesta" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#EnviarCorreo" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                     <graphic>
+                        <Icons525View glyphName="ENVELOPE" />
+                     </graphic>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="30.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Label alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" text="Fecha Peticion:">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label maxWidth="1.7976931348623157E308" text="Fecha Turno:" GridPane.columnIndex="2">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label maxWidth="1.7976931348623157E308" text="Usuario:" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label maxWidth="1.7976931348623157E308" text="Turno:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Estado:" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label maxWidth="1.7976931348623157E308" text="Comentario:" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextArea fx:id="descripcion" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets right="30.0" top="15.0" />
+                     </GridPane.margin>
+                  </TextArea>
+                  <TextField fx:id="usuario" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="turno" editable="false" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets right="30.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <ToggleButton fx:id="estadoAbierto" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ABIERTA" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </ToggleButton>
+                  <ToggleButton fx:id="estadoCerrado" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="CERRADA" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </ToggleButton>
+                  <TextField fx:id="fechapeticion" editable="false" GridPane.columnIndex="1" />
+                  <TextField fx:id="fechaturno" editable="false" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3">
+                     <GridPane.margin>
+                        <Insets right="30.0" />
+                     </GridPane.margin>
+                  </TextField>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <HBox alignment="CENTER" opacity="0.6" prefHeight="49.0" prefWidth="874.0" styleClass="hbox" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="encabezado-secundario" text="INFORMACION PETICION" />
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

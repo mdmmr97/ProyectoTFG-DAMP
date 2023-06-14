@@ -8,30 +8,32 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="479.0" prefWidth="874.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cambioturnos.controller.Peticiones.PeticionesController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="479.0" prefWidth="874.0" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cambioturnos.controller.Peticiones.PeticionesController">
    <center>
       <AnchorPane prefHeight="479.0" prefWidth="709.0">
          <children>
             <Label layoutX="237.0" layoutY="174.0" text="Peticiones" />
-            <TableView fx:id="tablaPeticiones" layoutX="14.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#ElegirPeticion" prefHeight="385.0" prefWidth="707.0">
+            <TableView fx:id="tablaPeticiones" layoutX="14.0" layoutY="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#ElegirPeticion" prefHeight="352.0" prefWidth="676.0">
               <columns>
                 <TableColumn fx:id="colFecha" editable="false" prefWidth="177.0" resizable="false">
                      <graphic>
-                        <Icons525View glyphName="CALENDAR" />
+                        <Icons525View fill="WHITE" glyphName="CALENDAR" size="20" />
                      </graphic>
                   </TableColumn>
                 <TableColumn fx:id="colUser" editable="false" prefWidth="310.0" resizable="false">
                      <graphic>
-                        <Icons525View glyphName="USER" />
+                        <Icons525View fill="WHITE" glyphName="USER" size="20" />
                      </graphic>
                   </TableColumn>
                   <TableColumn fx:id="colTurno" editable="false" maxWidth="1.7976931348623157E308" prefWidth="219.0" resizable="false" text="TURNO" />
               </columns>
             </TableView>
-            <Button fx:id="verpeticion" layoutX="315.0" layoutY="418.0" mnemonicParsing="false" onAction="#VerPeticion" prefHeight="41.0" prefWidth="106.0">
+            <Button fx:id="verpeticion" layoutX="299.0" layoutY="365.0" mnemonicParsing="false" onAction="#VerPeticion" prefHeight="41.0" prefWidth="106.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -40,25 +42,31 @@
                </graphic>
             </Button>
          </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
       </AnchorPane>
    </center>
    <left>
-      <VBox prefHeight="479.0" prefWidth="139.0" BorderPane.alignment="CENTER">
+      <VBox maxWidth="-Infinity" prefHeight="479.0" prefWidth="169.0" BorderPane.alignment="TOP_LEFT">
          <children>
-            <Label fx:id="nombregrupo" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefHeight="102.0" prefWidth="139.0" text="Label">
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-            </Label>
-            <VBox alignment="CENTER" prefHeight="281.0" prefWidth="139.0">
+            <HBox prefHeight="42.0" prefWidth="169.0">
                <children>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#InformacionGrupo">
+                  <Icons525View fill="WHITE" glyphName="GROUP" size="26">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="5.0" right="5.0" top="8.0" />
+                     </HBox.margin>
+                  </Icons525View>
+                  <Label fx:id="nombregrupo" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="169.0" styleClass="Labelgrupo" text="Label">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox alignment="TOP_LEFT" prefHeight="281.0" prefWidth="139.0">
+               <children>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#InformacionGrupo" text="GRUPO">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -66,32 +74,29 @@
                         <Icons525View glyphName="INFO_CIRCLE" size="20" />
                      </graphic>
                   </Button>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#AñadirPeticion" prefHeight="44.0" prefWidth="115.0" text="+">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#AñadirPeticion" prefHeight="44.0" prefWidth="115.0" text="AÑADIR">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="todaspeticiones" layoutX="10.0" layoutY="42.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#TodasPeticines" prefHeight="44.0" prefWidth="115.0" text="Peticiones">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Button>
-                  <Button maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#VerMisPeticiones" prefHeight="41.0" prefWidth="139.0" text="Mis peticiones">
+                  <Button maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#VerMisPeticiones" prefHeight="41.0" prefWidth="139.0" text="MIS PETICIONES">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
                   <VBox fx:id="menu" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Button fx:id="modificar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ModificarPeticion">
+                        <Button fx:id="modificar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ModificarPeticion" text="MODIFICAR">
                            <font>
                               <Font size="16.0" />
                            </font>
-                           <graphic>
-                              <Icons525View glyphName="PENCIL" />
-                           </graphic>
                         </Button>
-                        <Button fx:id="eliminar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#BorrarPeticion" text="-">
+                        <Button fx:id="eliminar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#BorrarPeticion" text="BORRAR">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="todaspeticiones" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#TodasPeticines" prefHeight="44.0" prefWidth="115.0" text="PETICIONES">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -100,19 +105,29 @@
                   </VBox>
                </children>
             </VBox>
-            <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="105.0" prefWidth="139.0">
+            <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="85.0" prefWidth="149.0">
                <children>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#VolverGrupos">
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#VolverGrupos" prefHeight="39.0" prefWidth="169.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                      <graphic>
-                        <Icons525View glyphName="SIGN_OUT" />
+                        <Icons525View glyphName="ARROW" size="20" />
                      </graphic>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
+               </VBox.margin>
             </VBox>
          </children>
       </VBox>
    </left>
+   <top>
+      <HBox alignment="CENTER" opacity="0.6" prefHeight="49.0" prefWidth="874.0" styleClass="hbox" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="encabezado-principal" text="PETICIONES" />
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

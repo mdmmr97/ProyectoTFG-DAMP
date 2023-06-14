@@ -41,14 +41,14 @@
          <left>
             <VBox prefHeight="479.0" prefWidth="169.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="añadirGrup" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#crearGrupo" prefHeight="47.0" prefWidth="169.0" text="+">
+                  <Button fx:id="añadirGrup" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#crearGrupo" prefHeight="47.0" prefWidth="169.0" text="AÑADIR">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="unirseGrup" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#unirseGrupo" prefHeight="47.0" prefWidth="169.0" text="Unirse" />
-                  <Button fx:id="dejarGrup" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#abandonarGrupo" prefHeight="47.0" prefWidth="169.0" text="Dejar" />
-                  <Button fx:id="eliminarGrup" layoutX="10.0" layoutY="154.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#eliminarGrupo" prefHeight="47.0" prefWidth="169.0" text="-">
+                  <Button fx:id="unirseGrup" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#unirseGrupo" prefHeight="47.0" prefWidth="169.0" text="UNIR" />
+                  <Button fx:id="dejarGrup" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#abandonarGrupo" prefHeight="47.0" prefWidth="169.0" text="ABANDONAR" />
+                  <Button fx:id="eliminarGrup" layoutX="10.0" layoutY="154.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#eliminarGrupo" prefHeight="47.0" prefWidth="169.0" text="BORRAR">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>

@@ -26,16 +26,27 @@ ImageView{
     -fx-alignment: center-right;
     -fx-font-weight: bold;
 }
-#LabelTurnos{
-    -fx-alignment: top-right;
+.Labelgrupo{
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
 }
-Button{
+.LabelNuevaPet{
+    -fx-alignment: bottom-left;
+}
+Button, ToggleButton{
     -fx-font-size:16px;
     -fx-font-weight: bold;
     -fx-background-color: #dfdfdf;
     -fx-border-color: #ffffff;
     -fx-border-width: 2px;
     -fx-border-radius: 5px;
+}
+ToggleButton:selected{
+    -fx-background-color:#585858;;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
 }
 .encabezado-secundario{
     -fx-font-size: 18px;
@@ -59,6 +70,7 @@ Button{
     -fx-font-weight: bold;
     -fx-text-fill: black;
     -fx-alignment: center;
+    -fx-font-size: 14px;
 
 }
 .list-cell:odd{
@@ -71,6 +83,8 @@ Button{
     -fx-background-color: #585858;
     -fx-text-fill: white;
 }
+
+
 /*CSS Tabla*/
 .table-view .column-header .label{
     -fx-text-fill: White;
@@ -90,6 +104,7 @@ Button{
 .table-cell {
     -fx-text-alignment: center;
     -fx-alignment: center;
+    -fx-font-size: 14px;
 }
 .table-row-cell:odd {
     -fx-background-color: #d1d1d1;
